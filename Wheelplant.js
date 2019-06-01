@@ -243,34 +243,4 @@
 })
 
 
-var myPlant = new Wheelplant({
-	width:  200,
-	height: "300px",
-	parentNode: "#a",
-	duration: "2000ms",
-	transitionTime: "0.4s",
-	img: [
-		{ href: "123123", src: "./img/正面.jpg", tipMes: "图1" },
-		{ href: "123123", src: "./img/反面.jpg", tipMes: "图2" },
-		{ href: "123123", src: "./img/1.jpg", tipMes: "图3" },
-		{ href: "123123", src: "./img/2.jpg", tipMes: "图4" }
-	],
-	hover: {
-		pause: true
-	},
-	dots: {
-		show: true,
-		ordinaryColor: "rgba(255,0,0,.3)",
-		activeColor: "#ff0000",
-		dotSize: "20px",
-		bottomDistance: "20px",
-		transition: ".3s",
-		turn: true
-	},
-	tip: {
-		show: true,
-		backgroundColor: "blue",
-		fontColor: "#fff"
-	}
-})
-myPlant.picPlay();
+
