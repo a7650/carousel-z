@@ -8,6 +8,8 @@
 
 2 commonJS `const Wheelplant = require('./Wheelplant.js')` 
 
+3 如果你使用npm，你可以 `npm install wheel-plant`
+
 #### 初始化
 `var myWheelPlant = new Wheelplant(options)`
 
