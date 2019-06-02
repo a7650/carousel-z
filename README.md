@@ -1,16 +1,12 @@
-# Wheelplant
+# carousel-z
 ### 一个轮播图插件，通过简单的配置参数就可以实现一个轮播图。
 
 ### 使用方法
 
-#### 导入
-1 标签导入 `<script src="./Wheelplant.js"></script>` 
+#### 安装
+ `npm install wheel-plant`
 
-2 commonJS `const Wheelplant = require('./Wheelplant.js')` 
-
-3 如果你使用npm，你可以 `npm install wheel-plant`
-
-#### 初始化
+#### 使用
 `var myWheelPlant = new Wheelplant(options)`
 
 `myWheelPlant.picPlsy()`
