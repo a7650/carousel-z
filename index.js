@@ -1,15 +1,16 @@
-﻿
+﻿/**
+ * carousel-z v1.0.2
+ * (c) 2019 zzp
+ */
+
 (function (global, factory) {
-	if (typeof exports === "object") {
-		module.exports = factory();
-	}
-	else if (typeof define === "function" && define.amd) {
-		define(factory);
-	}
-	else {
-		global.Wheelplant = factory();
-	}
-})(this, function () {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+		typeof define === 'function' && define.amd ? define(factory) :
+			(global.Wheelplant = factory());
+}(this, (function () {
+	`use strict`
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	function err(errMes) {
 		throw new Error(errMes)
@@ -26,20 +27,20 @@
 	}
 
 	function getUnit(str, dUnit) {
-		if(!str)return "";
-		let unit = str.match(/[a-zA-Z]/g);
+		if (!str) return "";
+		let unit = str.match(/[a-zA-Z]/g),
 			res = unit ? unit.join('') : dUnit;
 		return res
 	}
 
-	function Wheelplant({ width, height, parentNode, img, transitionTime, duration, hover, dots, tip }) {
+	function Carousel({ width, height, parentNode, img, transitionTime, duration, hover, dots, tip }) {
 		if (!(width && height && parentNode && img && duration)) {
 			err("please check width&&height&&parentNode&&img&&duration")
 		}
-		switch(true){
-			case typeof width !== 'number'&&typeof width !== 'string' :  err("'width' error");break;
-			case typeof height !== 'number'&&typeof height !== 'string' : err("'height' error");break;
-			case typeof duration !== 'number'&&typeof duration !== 'string' : err("'duration' error");break;
+		switch (true) {
+			case typeof width !== 'number' && typeof width !== 'string': err("'width' error"); break;
+			case typeof height !== 'number' && typeof height !== 'string': err("'height' error"); break;
+			case typeof duration !== 'number' && typeof duration !== 'string': err("'duration' error"); break;
 		}
 		let self = this,
 			widthUnit = getUnit(width.toString(), "px"),
@@ -49,12 +50,12 @@
 			container = document.createElement("div"),
 			dotsNode = document.createElement("div");
 		this.widthUnit = widthUnit;
-		this.width =  parseInt(width) + widthUnit ;
+		this.width = parseInt(width) + widthUnit;
 		this.height = parseInt(height) + heightUnit;
 		this.parentNode = parentNode.nodeType === 1 ? parentNode : typeof parentNode === 'string' ? document.querySelector(parentNode) : null;
-		(!parentNode)&&err("'parentNode' error")
+		(!parentNode) && err("'parentNode' error")
 		this.duration = parseInt(duration);
-		transitionTime&&(this.transitionTime = typeof parseFloat(transitionTime) === 'number' ? parseFloat(transitionTime) + transitionTimeUnit : 0);
+		transitionTime && (this.transitionTime = typeof parseFloat(transitionTime) === 'number' ? parseFloat(transitionTime) + transitionTimeUnit : 0);
 		this.timer = null;
 		this._index = -1;
 		if (Array.isArray(img) && img.length) {
@@ -73,7 +74,7 @@
 			container.appendChild(this.createImg(item))
 		}
 		container.addEventListener('transitionend', function (e) {
-			if (this.dataset.index == self.img.length - 1) {
+			if (this.dataset.index >= self.total) {
 				this.style.transition = "0s";
 				this.style.transform = "translateX(0px)";
 				this.setAttribute('data-index', 0);
@@ -100,10 +101,10 @@
 				dotSize: "10px",
 				bottomDistance: "20px",
 				transition: "0s",
-				marginRight: "10px",
+				spacing: "10px",
 				turn: true
 			}
-			let params = Object.assign({}, baseParams, dots),
+			let params = _extends({}, baseParams, dots),
 				dotSizeUnit = getUnit(params.dotSize),
 				bottomDistanceUnit = getUnit(params.bottomDistance),
 				radius = parseInt(params.dotSize) / 2 + dotSizeUnit;
@@ -113,7 +114,7 @@
 			for (let i = 0; i < this.total; i++) {
 				var dot = document.createElement("div");
 				dot.index = i;
-				setStyle(dot, { display: "inline-block", marginRight: params.marginRight, transition: params.transition, width: params.dotSize, height: params.dotSize, borderRadius: radius, backgroundColor: params.ordinaryColor, cursor: params.turn ? "pointer" : '' });
+				setStyle(dot, { display: "inline-block", marginRight: params.spacing, transition: params.transition, width: params.dotSize, height: params.dotSize, borderRadius: radius, backgroundColor: params.ordinaryColor, cursor: params.turn ? "pointer" : '' });
 				if (i === this.total - 1) {
 					dot.style.marginRight = 0;
 				}
@@ -149,8 +150,9 @@
 					err("The 'tipMes' attribute is not 'string' type")
 				}
 			})
+			let params = _extends({}, { fontColor: "#fff", backgroundColor: "rgba(0,0,0,.5)" }, tip)
 			let tipNode = document.createElement("div");
-			setStyle(tipNode, { padding: "6px", color: tip.fontColor, backgroundColor: tip.backgroundColor, display: "none", position: "fixed", zIndex: 100, borderRadius: "3px" });
+			setStyle(tipNode, { padding: "6px", color: params.fontColor, backgroundColor: params.backgroundColor, display: "none", position: "fixed", zIndex: 100, borderRadius: "3px" });
 			container.addEventListener("mouseenter", function (e) {
 				let curIndex = self.index == self.total ? 0 : self.index;
 				tipNode.innerHTML = img[curIndex].tipMes;
@@ -193,7 +195,7 @@
 
 
 
-	Wheelplant.prototype.createImg = function (img) {
+	Carousel.prototype.createImg = function (img) {
 		let a = document.createElement("a");
 		let _img = document.createElement("img");
 		setStyle(a, { width: this.width, height: this.height, position: "relative", display: "inline-block" });
@@ -204,22 +206,22 @@
 		return a
 	}
 
-	Wheelplant.prototype.pushSrc = function (img) {
-		if (Array.isArray(img)) {
-			this.img.splice(this.img.length - 1, 0, ...img)
-		} else if (typeof img === 'string') {
-			this.img.splice(this.img.length - 1, 0, img)
-		}
-	}
+	// Wheelplant.prototype.pushSrc = function (img) {
+	// 	if (Array.isArray(img)) {
+	// 		this.img.splice(this.img.length - 1, 0, ...img)
+	// 	} else if (typeof img === 'string') {
+	// 		this.img.splice(this.img.length - 1, 0, img)
+	// 	}
+	// }
 
-	Wheelplant.prototype.turn = function (index) {
+	Carousel.prototype.turn = function (index) {
 		this.container.style.transition = this.transitionTime;
 		let _index = parseInt(index) >= 0 ? index : this.index;
 		// console.log(_index)
 		this.container.style.transform = `translateX(${-_index * parseInt(this.width) + this.widthUnit})`
 	}
 
-	Wheelplant.prototype.picPlay = function () {
+	Carousel.prototype.picPlay = function () {
 		this.index++;
 		this.container.setAttribute('data-index', this.index);
 		this.turn();
@@ -228,7 +230,7 @@
 		}, this.duration)
 	}
 
-	Wheelplant.prototype.picPause = function () {
+	Carousel.prototype.picPause = function () {
 		let container = this.container;
 		this.timer && clearTimeout(this.timer);
 		if (container.dataset.index == this.img.length - 1) {
@@ -239,8 +241,9 @@
 		}
 	}
 
-	return Wheelplant
-})
+	return Carousel
+})))
+
 
 
 

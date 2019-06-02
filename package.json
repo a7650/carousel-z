@@ -1,0 +1,13 @@
+{
+  "name": "carousel-z",
+  "version": "1.0.2",
+  "description": "",
+  "main": "./dist/carousel.js",
+  "author": "Zhang Zhipeng",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
