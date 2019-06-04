@@ -4,8 +4,6 @@
 ### 使用方法
 
 #### 安装
-<font color=#00ffff size=72>color=#00ffff</font>
-
 `npm install carousel-z`
 
 #### 使用
@@ -19,7 +17,9 @@
 
 #### options的属性示例
  <font color=#00ffff>parentNode(必须)(string || object)</font>
- <font color=#00ffff>parent</font>
+ 
+ <font color=#008000>我是绿色</font>
+
 
      parentNode为将要挂载的dom对象，即轮播图挂载在该dom上，此参数必须传入，可以是一个css选择器或者dom对象。
      
