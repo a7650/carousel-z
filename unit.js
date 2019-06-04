@@ -22,9 +22,11 @@ function getUnit(str, dUnit) {
     return res
 }
 
-module.exports = {
-    _extends:_extends,
-    err:err,
-    setStyle:setStyle,
-    getUnit:getUnit
+var unit = {
+    _extends,
+    err,
+    setStyle,
+    getUnit
 }
+
+module.exports = unit

@@ -1,19 +1,17 @@
-# Wheelplant
+# carousel-z
 ### 一个轮播图插件，通过简单的配置参数就可以实现一个轮播图。
 
 ### 使用方法
 
-#### 导入
-1 标签导入 `<script src="./Wheelplant.js"></script>` 
+#### 安装
+ `npm install carousel-z`
 
-2 commonJS `const Wheelplant = require('./Wheelplant.js')` 
+#### 使用
+`import Carousel from "carousel-z"`
 
-3 如果你使用npm，你可以 `npm install wheel-plant`
+`var myCarousel = new Carousel(options)`
 
-#### 初始化
-`var myWheelPlant = new Wheelplant(options)`
-
-`myWheelPlant.picPlsy()`
+`myCarousel.picPlay()`
 
 
 参数options为一个对象，设定了轮播图的各种参数。
@@ -53,6 +51,20 @@
     hover控制鼠标在轮播图上时的行为，有如下属性：
       hover.pause:鼠标悬停时是否停止播放图片，boolean类型，默认为false。
      
+##### hidden(可选)(boolean)
+
+    超出容器范围时是否隐藏图片，默认为true，即隐藏。
+
+##### transitionName(可选)(string)
+
+    你可以通过设置该属性来指定类名，`transitionName-enter`和`transitionName-leave`(例如你设置transitionName为"cir"，则相应的类名为"cir-enter"和"cir-leave")；
+
+    之后你就可以在css中添加"transitionName-enter"和"transitionName-leave"的样式，他们分别表示图片在"进入容器范围之前的状态"和"进入容器范围之后的状态"；
+
+    当然如果你没有设置这个属性的话，你也有默认的类名来使用，他们分别是"carousel-default-enter"和"carousel-default-leave"，使用这两个能达到相同的效果；
+
+    如果你设置了transitionName属性，则默认的类名将不能使用，因为他们会被默认的类名覆盖掉。
+
 ##### dots(可选)(object)
 
     dots设置图片的控制条。主要有以下属性：
@@ -72,15 +84,19 @@
       backgroundColor:提示框背景颜色，默认为半透明的黑色。
       fontColor:提示框字体，默认为白色。
       
-#### Wheelplant的方法
+#### Wheelplant的方法(以下方法可以在Carousel的实例上使用)
 
-Wheelplant.picPlay(),播放图片，初始化后需调用此方法来开始播放图片。
+myCarousel.picPlay(),播放图片，初始化后需调用此方法来开始播放图片。
 
-Wheelplant.picPause(),暂停播放。
+myCarousel.picPause(),暂停播放。
 
-Wheelplant.turn(index),跳转到对应图片。
+myCarousel.turn(to,from),参数为图片的index，从from跳转到to。
 
-Wheelplant.pushSrc(array||object),添加img数据（暂不能使用）。
+myCarousel.isanimated(),判断是否处于动画状态，返回true或false。
+
+
+
+
       
       
       
