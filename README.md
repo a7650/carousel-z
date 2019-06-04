@@ -27,7 +27,8 @@
      
 ##### 🍊width(必须)(string || number)
 
-    width为轮播图容器的宽度，即将要显示的单张图片的宽度。此参数必须传入，可以是数值类型或字符串类型，数值类型时默认单位为"px"。
+    width为轮播图容器的宽度，即将要显示的单张图片的宽度。
+    此参数必须传入，可以是数值类型或字符串类型，数值类型时默认单位为"px"。
     
 ##### 🍊height(必须)(string || number)
 
@@ -64,11 +65,10 @@
     你可以通过设置该属性来指定类名，`transitionName-enter`和`transitionName-leave`(例如你设置transitionName为"cir"，
     则相应的类名为"cir-enter"和"cir-leave")；
 
-    之后你就可以在css中添加"transitionName-enter"和"transitionName-leave"的样式，他们分别表示图片在"进入容器范围之前的
-    状态"和"离开容器范围之后的状态"；
+    之后你就可以在css中添加"transitionName-enter"和"transitionName-leave"的样式，他们分别表示图片在"进入容器范围之前
+    的状态"和"离开容器范围之后的状态"；
 
-    当然如果你没有设置这个属性的话，你也有默认的类名来使用，他们分别是"carousel-default-enter"和"carousel-default-leave"，
-    使用这两个能达到相同的效果；
+    当然如果你没有设置这个属性的话，你也有默认的类名来使用，他们分别是"carousel-default-enter"和"carousel-default-leave"
 
     如果你设置了transitionName属性，则默认的类名将不能使用，因为他们会被默认的类名覆盖掉。
 
