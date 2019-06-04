@@ -16,7 +16,8 @@
 参数options为一个对象，设定了轮播图的各种参数。
 
 #### options的属性示例
- <font color=#00ffff>##### parentNode(必须)(string || object)</font>
+ <font color=#00ffff>parentNode(必须)(string || object)</font>
+ <font color=#00ffff>parent</font>
 
      parentNode为将要挂载的dom对象，即轮播图挂载在该dom上，此参数必须传入，可以是一个css选择器或者dom对象。
      
