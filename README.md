@@ -12,8 +12,8 @@
 `var myCarousel = new Carousel(options)`
 
 `myCarousel.picPlay()`
-=======
- `npm install wheel-plant`
+
+`
 
 #### 使用
 `var myWheelPlant = new Wheelplant(options)`
