@@ -1,5 +1,5 @@
 /**
- * carousel-z v1.0.3
+ * carousel-z v1.0.4
  * (c) 2019 zzp
  */
 
