@@ -13,13 +13,6 @@
 
 `myCarousel.picPlay()`
 
-`
-
-#### 使用
-`var myWheelPlant = new Wheelplant(options)`
-
-`myWheelPlant.picPlay()`
-
 参数options为一个对象，设定了轮播图的各种参数。
 
 #### options的属性示例
