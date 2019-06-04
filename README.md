@@ -4,6 +4,8 @@
 ### 使用方法
 
 #### 安装
+<font color=#00ffff size=72>color=#00ffff</font>
+
 `npm install carousel-z`
 
 #### 使用
