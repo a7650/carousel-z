@@ -4,8 +4,7 @@
 ### 使用方法
 
 #### 安装
-<<<<<<< HEAD
- `npm install carousel-z`
+`npm install carousel-z`
 
 #### 使用
 `import Carousel from "carousel-z"`
@@ -19,9 +18,7 @@
 #### 使用
 `var myWheelPlant = new Wheelplant(options)`
 
-`myWheelPlant.picPlsy()`
->>>>>>> d0e683200715973d12d256250591d445734298cf
-
+`myWheelPlant.picPlay()`
 
 参数options为一个对象，设定了轮播图的各种参数。
 
