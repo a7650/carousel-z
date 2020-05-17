@@ -1,13 +1,25 @@
 {
   "name": "carousel-z",
-  "version": "1.0.4",
-  "description": "",
+  "version": "1.0.5",
+  "description": "原生JS的轮播图插件，可自定义切换动画",
   "main": "./index.js",
-  "author": "Zhang Zhipeng",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a7650/carousel-z.git"
+  },
+  "keywords": [
+    "js",
+    "carousel",
+    "wheel",
+    "animation"
+  ],
+  "author": "zzp",
   "license": "ISC",
-  "dependencies": {}
+  "bugs": {
+    "url": "https://github.com/a7650/carousel-z/issues"
+  },
+  "homepage": "https://github.com/a7650/carousel-z#readme"
 }
